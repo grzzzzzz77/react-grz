@@ -22,7 +22,7 @@ export default defineConfig({
   server: {
     open: true,
     host: true,
-    port: 5173,
+    port: 5177,
     proxy: {
       "/api": {
         target: "https://api.52vmy.cn",
