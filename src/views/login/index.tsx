@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from '../../components/ui/card'
 import { AuthLayout } from './auth-layout'
-import LoginForm from './cpns/loginForm'
+import LoginForm from './cpns/LoginForm'
 
 
 export function Login() {

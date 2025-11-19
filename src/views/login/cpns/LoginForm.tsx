@@ -1,8 +1,9 @@
 import React from "react";
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, message } from "antd";
 import type { FormProps } from "antd";
+import { useNavigate } from "react-router-dom";
 
-import stytles from './index.module.less'
+import stytles from "./index.module.less";
 
 type FieldType = {
   username?: string;
@@ -10,8 +11,16 @@ type FieldType = {
   remember?: string;
 };
 const LoginForm: React.FC = () => {
+  const navigate = useNavigate();
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
-    console.log("Success:", values);
+    console.log(values);
+    if (values.username === "admin" && values.password === "123456") {
+      //登录成功
+      message.success("登录成功");
+      navigate("/");
+    } else {
+      message.error("用户名或密码错误");
+    }
   };
 
   const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (
@@ -47,7 +56,12 @@ const LoginForm: React.FC = () => {
         <Input.Password />
       </Form.Item>
       <Form.Item label={null}>
-        <Button className={stytles.submit} type="primary" size="large" htmlType="submit">
+        <Button
+          className={stytles.submit}
+          type="primary"
+          size="large"
+          htmlType="submit"
+        >
           登录
         </Button>
       </Form.Item>
