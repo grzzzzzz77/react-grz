@@ -8,10 +8,11 @@ import LayoutCom from "@/layout";
 
 const router = createBrowserRouter([
   {
+    path: "/admin",
     element: <LayoutCom />,
     children: [
       {
-        path: "/admin/home",
+        path: "home",
         element: lazyLoad(lazy(() => import("../views/admin/home"))),
       },
     ],
