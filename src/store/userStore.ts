@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 export const useStore = create<{
     userInfo: any;
-}>((set) => ({
+}>((_set) => ({
     userInfo: {
         _id: '',
         userId: 0,

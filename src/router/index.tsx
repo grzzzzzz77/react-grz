@@ -1,10 +1,11 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
-import React, { Suspense, lazy } from "react";
+import { lazy } from "react";
 import { lazyLoad } from "./lazyLoad";
 import { Login } from "@/views/login";
 import NotFound from "../views/NotFound";
 import LayoutCom from "@/layout";
 // import Home from "../views/admin/home";
+import { getAllCategory } from "@/api/demoTest";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,14 @@ const router = createBrowserRouter([
       {
         path: "home",
         element: lazyLoad(lazy(() => import("../views/admin/home"))),
+      },
+      {
+        path: "user",
+        element: lazyLoad(lazy(() => import("../views/admin/user"))),
+        loader: async () => {
+          const res = await getAllCategory("武汉大学");
+          return res;
+        },
       },
     ],
   },

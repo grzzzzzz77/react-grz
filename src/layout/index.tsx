@@ -5,7 +5,7 @@ import SiderCom from "./sider";
 // import FooterCom from "./footer";
 import styles from "./index.module.less";
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Sider, Content } = Layout;
 
 const LayoutCom: React.FC = () => {
   return (
