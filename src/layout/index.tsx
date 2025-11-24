@@ -11,14 +11,14 @@ const LayoutCom: React.FC = () => {
   return (
     <div>
       <Layout style={{ minHeight: "100vh" }}>
-        <Sider width="25%" className={styles.sider}>
+        <Sider width="20%" className={styles.sider}>
           <SiderCom />
         </Sider>
         <Layout>
           <Header className={styles.header}>
             <HeaderCom />
           </Header>
-          <Content>
+          <Content className={styles.content}>
             <Outlet />
           </Content>
           {/* <Footer>

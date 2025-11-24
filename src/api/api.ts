@@ -3,6 +3,7 @@ import axios ,{type AxiosRequestConfig, type AxiosResponse,type AxiosError} from
 import {type Result} from "../types/api";
 import {message as M} from "antd";
 
+
 const api = import.meta.env.VITE_BASE_URL; // /api
 
 // 创建 axios 实例
@@ -15,7 +16,7 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(
     (config) => {        
 		// 在请求被发送之前做些什么
-		config.headers.Authorization = "Bearer Token";
+		config.headers.Authorization = `Bearer Token ${localStorage.getItem("token")}`;
 		return config;
 	},
 	(error) => {

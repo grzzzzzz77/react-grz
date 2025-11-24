@@ -2,6 +2,8 @@ import React from "react";
 import { Button, Form, Input, message } from "antd";
 import type { FormProps } from "antd";
 import { useNavigate } from "react-router-dom";
+import type { IuserInfo } from "@/types/user";
+import useUserStore from "@/store/userStore";
 
 import stytles from "./index.module.less";
 
@@ -12,10 +14,20 @@ type FieldType = {
 };
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();
+  const { setUserInfo } = useUserStore();
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     console.log(values);
     if (values.username === "admin" && values.password === "123456") {
       //登录成功
+      const data: IuserInfo = {
+        userName: "停售今日心情",
+        phone: "1234567890",
+        routes: [],
+        avatar: "https://api.elaina.cat/random/",
+      };
+      const token = "xxxxxasdasdasdasdasdasdasdasda";
+      localStorage.setItem("token", token);
+      setUserInfo(data);
       message.success("登录成功");
       navigate("/");
     } else {

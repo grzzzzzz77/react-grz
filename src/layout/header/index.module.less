@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  z-index: 1;
+  width: 100%;
+
+  .left {
+    display: flex;
+    align-items: center;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+
+    .dropdownTrigger {
+      cursor: pointer;
+      padding: 0 12px;
+      transition: all 0.3s;
+      border-radius: 6px;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.025);
+      }
+
+      .username {
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.85);
+      }
+    }
+  }
+}
