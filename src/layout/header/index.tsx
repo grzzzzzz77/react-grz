@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Breadcrumb, message, Dropdown, Avatar, Space } from "antd";
 import type { MenuProps } from "antd";
@@ -9,22 +9,24 @@ import useUserStore from "@/store/userStore";
 const HeaderCom: React.FC = () => {
   const navigate = useNavigate();
   const { userName, avatar } = useUserStore();
-  const items: MenuProps["items"] = [
-    {
-      key: "1",
-      label: <Link to="/admin/user">个人中心</Link>,
-      icon: <UserOutlined />,
-    },
-    {
-      type: "divider",
-    },
-    {
-      key: "3",
-      label: "退出登录",
-      icon: <LogoutOutlined />,
-      danger: true,
-    },
-  ];
+  const items: MenuProps["items"] = useMemo(() => {
+    return [
+      {
+        key: "1",
+        label: <Link to="/admin/user">个人中心</Link>,
+        icon: <UserOutlined />,
+      },
+      {
+        type: "divider",
+      },
+      {
+        key: "3",
+        label: "退出登录",
+        icon: <LogoutOutlined />,
+        danger: true,
+      },
+    ];
+  }, []);
 
   const onClick: MenuProps["onClick"] = ({ key }) => {
     if (key === "3") {
@@ -33,8 +35,6 @@ const HeaderCom: React.FC = () => {
       message.success("退出登录");
     }
   };
-
-  console.log("header render");
 
   return (
     <div className={styles.header}>
