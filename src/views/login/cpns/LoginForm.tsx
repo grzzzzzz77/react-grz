@@ -23,7 +23,7 @@ const LoginForm: React.FC = () => {
         userName: "停售今日心情",
         phone: "1234567890",
         routes: [],
-        avatar: "https://api.elaina.cat/random/",
+        avatar: "",
       };
       const token = "xxxxxasdasdasdasdasdasdasdasda";
       localStorage.setItem("token", token);

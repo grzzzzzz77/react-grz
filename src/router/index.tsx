@@ -24,6 +24,10 @@ const router = createBrowserRouter([
           return res;
         },
       },
+      {
+        path: "test",
+        element: lazyLoad(lazy(() => import("../views/admin/test"))),
+      },
     ],
   },
   { path: "/", element: <Navigate to="/admin/home" /> },

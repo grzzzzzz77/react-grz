@@ -53,7 +53,7 @@ const HeaderCom: React.FC = () => {
       <div className={styles.right}>
         <Dropdown menu={{ items, onClick }}>
           <Space className={styles.dropdownTrigger}>
-            <Avatar src={avatar} />
+            {/* <Avatar src={avatar} /> */}
             <span className={styles.username}>{userName}</span>
             <DownOutlined />
           </Space>

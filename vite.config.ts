@@ -1,12 +1,11 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 import path from "path";
 import dnsPrefetchPlugin from "./dns-prefetch.js";
 
-
 // https://vite.dev/config/
 export default defineConfig({
-  base: './',
+  base: "./",
   resolve: {
     alias: {
       //别名
@@ -16,16 +15,16 @@ export default defineConfig({
   },
   plugins: [
     react({
-      babel:{
+      babel: {
         // plugins:['babel-plugin-react-compiler']
-        plugins:["./directives-react.js","./optimizeCodePlugin.js"],
-      }
-  }),
-  // DNS 预解析插件
-  dnsPrefetchPlugin({
-    // includeDomains: ['api.elaina.cat'], // 只对白名单中的域名开启 DNS 预解析，为空则使用所有
-  }),
-],
+        plugins: ["./directives-react.js", "./optimizeCodePlugin.js"],
+      },
+    }),
+    // DNS 预解析插件
+    dnsPrefetchPlugin({
+      // includeDomains: ['api.elaina.cat'], // 只对白名单中的域名开启 DNS 预解析，为空则使用所有
+    }),
+  ],
   server: {
     open: true,
     host: true,
@@ -38,4 +37,4 @@ export default defineConfig({
       },
     },
   },
-})
+});
