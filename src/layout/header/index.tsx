@@ -49,6 +49,10 @@ const HeaderCom: React.FC = () => {
             },
           ]}
         /> */}
+        <Link to="/admin/form">表单</Link>
+        <Link to="/admin/home" style={{ marginLeft: "10px" }}>
+          home
+        </Link>
       </div>
       <div className={styles.right}>
         <Dropdown menu={{ items, onClick }}>

@@ -6,6 +6,13 @@ import NotFound from "../views/NotFound";
 import LayoutCom from "@/layout";
 // import Home from "../views/admin/home";
 import { getAllCategory } from "@/api/demoTest";
+import { keepAliveTransfer } from "../KeepAlive";
+
+import Form from "@/views/admin/form";
+import Home from "@/views/admin/home";
+
+const HomeView = keepAliveTransfer(Home, "home");
+const FormView = keepAliveTransfer(Form, "form");
 
 const router = createBrowserRouter([
   {
@@ -14,7 +21,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "home",
-        element: lazyLoad(lazy(() => import("../views/admin/home"))),
+        element: <HomeView />,
       },
       {
         path: "user",
@@ -27,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "test",
         element: lazyLoad(lazy(() => import("../views/admin/test"))),
+      },
+      {
+        path: "form",
+        element: <FormView />,
       },
     ],
   },

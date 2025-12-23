@@ -4,6 +4,7 @@ import HeaderCom from "./header";
 import SiderCom from "./sider";
 // import FooterCom from "./footer";
 import styles from "./index.module.less";
+import { KeepAlive } from "../KeepAlive";
 
 const { Header, Sider, Content } = Layout;
 
@@ -15,12 +16,15 @@ const LayoutCom: React.FC = () => {
           <SiderCom />
         </Sider>
         <Layout>
-          <Header className={styles.header}>
-            <HeaderCom />
-          </Header>
-          <Content className={styles.content}>
-            <Outlet />
-          </Content>
+          <KeepAlive>
+            <Header className={styles.header}>
+              <HeaderCom />
+            </Header>
+            <Content className={styles.content}>
+              <Outlet />
+            </Content>
+          </KeepAlive>
+
           {/* <Footer>
             <FooterCom />
           </Footer> */}
